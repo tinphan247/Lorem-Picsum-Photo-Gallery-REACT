@@ -1,0 +1,127 @@
+/* ------------------------------------------- */
+/* 1. THIẾT LẬP GỐC (CUSTOM ROOT VARIABLES) */
+/* ------------------------------------------- */
+
+/* Các CSS gốc (như app.css của bạn) phải nằm SAU 3 dòng trên */
+:root {
+    --color-bg-primary: #ffffff; /* Nền sáng chính */
+    --color-bg-secondary: #f4f4f5; /* Nền sáng phụ (gray-100) */
+    --color-text-primary: #18181b; /* Chữ tối (zinc-900) */
+    --color-text-secondary: #71717a; /* Chữ mờ (zinc-500) */
+    --color-accent: #1e40af; /* Xanh đậm (blue-800) */
+    --header-height: 64px;
+}
+
+/* Áp dụng Light Theme và khắc phục lỗi phông chữ */
+body {
+    background-color: var(--color-bg-primary);
+    color: var(--color-text-primary);
+    padding-top: var(--header-height);
+    /* Khắc phục lỗi phông chữ: Sử dụng font hệ thống hiện đại */
+    font-family: 'Inter', system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif;
+}
+
+
+/* ------------------------------------------- */
+/* 2. HEADER (Fixed/Sticky) */
+/* ------------------------------------------- */
+
+.app-header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: var(--header-height);
+    background-color: var(--color-bg-primary);
+    /* Bóng đổ sáng hơn */
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); 
+    z-index: 1000;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 1.5rem; /* Padding ngang */
+    border-bottom: 1px solid #e5e5e5; /* Border nhẹ */
+}
+
+.header-logo {
+    color: var(--color-accent);
+    font-size: 1.5rem;
+    font-weight: bold;
+    text-decoration: none;
+}
+
+.header-nav a {
+    color: var(--color-text-secondary);
+    text-decoration: none;
+    padding: 0.5rem 0.75rem;
+    border-radius: 4px;
+    transition: background-color 0.2s;
+}
+
+.header-nav a:hover {
+    background-color: var(--color-bg-secondary);
+    color: var(--color-text-primary);
+}
+
+
+/* ------------------------------------------- */
+/* 3. GALLERY GRID (Responsive 4/2/1) */
+/* ------------------------------------------- */
+
+/* Class CSS thuần sẽ thay thế các class grid-cols-* của Tailwind trong PhotoList */
+.gallery-container {
+    display: grid;
+    gap: 1.5rem; /* Tương đương Tailwind gap-6 */
+    padding: 1rem 0;
+}
+
+/* MOBILE: 1 ảnh/dòng (Mặc định) */
+.gallery-container {
+    grid-template-columns: repeat(1, 1fr);
+}
+
+/* TABLET (min-width: 640px): 2 ảnh/dòng */
+@media (min-width: 640px) {
+    .gallery-container {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+/* DESKTOP (min-width: 1024px): 4 ảnh/dòng */
+@media (min-width: 1024px) {
+    .gallery-container {
+        grid-template-columns: repeat(4, 1fr);
+    }
+}
+
+/* Hiệu ứng HOVER (Bóng đổ sáng) */
+.photo-card-item {
+    background-color: var(--color-bg-primary); /* Nền thẻ ảnh là nền trắng */
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+}
+
+.photo-card-item:hover {
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2); /* Bóng đổ khi hover */
+}
+
+
+/* ------------------------------------------- */
+/* 4. FOOTER */
+/* ------------------------------------------- */
+
+.app-footer {
+    background-color: var(--color-bg-secondary);
+    border-top: 1px solid #e5e5e5;
+    padding: 1.5rem 0;
+    color: var(--color-text-secondary);
+    text-align: center;
+    font-size: 0.9rem;
+}
+@keyframes fadeInSlow {
+  0% { opacity: 0; transform: scale(1.02); }
+  100% { opacity: 1; transform: scale(1); }
+}
+
+.animate-fadeInSlow {
+  animation: fadeInSlow 0.6s ease-out forwards;
+}
