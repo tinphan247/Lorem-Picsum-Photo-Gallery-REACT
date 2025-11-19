@@ -6,7 +6,7 @@
   "homepage": "https://tinphan247.github.io/Lorem-Picsum-Photo-Gallery-REACT",
   "scripts": {
     "predeploy": "npm run build",
-    "deploy": "gh-pages -d build",
+    "deploy": "npm run build && gh-pages -d dist" ,
     "dev": "vite",
     "build": "vite build",
     "lint": "eslint .",
