@@ -6,7 +6,7 @@ import './App.css';
 const REPO_NAME = 'Lorem-Picsum-Photo-Gallery-REACT';
 function App() {
   return (
-    <Router>
+    <Router basename={`/${REPO_NAME}`}> 
       <div className="min-h-screen">
         <Routes>
           {/* DINH TUYEN CHO DANH SACH ANH */}
