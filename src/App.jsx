@@ -3,7 +3,7 @@ import { BrowserRouter as Router, Routes, Route, Navigate } from 'react-router-d
 import PhotoList from './pages/PhotoList';
 import PhotoDetails from './pages/PhotoDetails'; // CẦN IMPORT LẠI
 import './App.css'; 
-
+const REPO_NAME = 'Lorem-Picsum-Photo-Gallery-REACT';
 function App() {
   return (
     <Router>
